@@ -45,6 +45,7 @@ namespace CPW212TicketingSystem
             List<Comment> TicketComments = db.Comments.Where(c => c.Ticket.TicketID == ticket.TicketID).ToList();
 
             return TicketComments;
+
         }
 
     }
