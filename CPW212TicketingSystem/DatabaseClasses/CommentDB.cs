@@ -33,19 +33,19 @@ namespace CPW212TicketingSystem
 
             db.SaveChanges();
         }
-
+        //Grabs all comments.
         public static List<Comment> GetAllComments()
         {
             List<Comment> ListOfComments = (db.Comments).ToList();
             return ListOfComments;
         }
-
+        // grabs the current ticket that we are viewing, passes it down to our extension method, to run a query that selects all comments
+        // that have a ticket and that their ticket matches, the same ticketID as the one passed in by the parameter.
         public static List<Comment> GetCommentsByTickID(Ticket ticket)
         {
             List<Comment> TicketComments = db.Comments.Where(c => c.Ticket.TicketID == ticket.TicketID).ToList();
 
             return TicketComments;
-
         }
 
     }
