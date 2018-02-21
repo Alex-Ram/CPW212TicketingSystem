@@ -44,7 +44,8 @@ namespace CPW212TicketingSystem
         // that have a ticket and that their ticket matches, the same ticketID as the one passed in by the parameter.
         public static List<Comment> GetCommentsByTickID(Ticket ticket)
         {
-            List<Comment> TicketComments = db.Comments.Where(c => c.Ticket.TicketID == ticket.TicketID).ToList();
+            List<Comment> TicketComments = db.Comments.Where(c => c.Ticket.TicketID == ticket.TicketID).OrderBy(c => c.Created).ToList();
+            //this will return it in sorted order of when it was created.
 
             return TicketComments;
         }
