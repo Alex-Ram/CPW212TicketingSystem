@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,21 @@ namespace CPW212TicketingSystem
 
             return TicketComments;
         }
+
+        public static List<Comment> GetCommentsByUser(User user)
+        {
+            List<Comment> UserComments = (from c in db.Comments where c.User.UserID == user.UserID select c).ToList();
+            return UserComments;
+        }
+
+        public static List<Comment> GetInternalComments(Ticket ticket)
+        {
+            List<Comment> InternalComments =
+                (from c in db.Comments where c.Ticket.TicketID == ticket.TicketID && c.IsInternal select c).ToList();
+
+            return InternalComments;
+        }
+
 
     }
 }
