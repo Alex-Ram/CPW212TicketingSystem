@@ -85,7 +85,7 @@ namespace CPW212TicketingSystem.Forms
 
         private void BtnEditRoles_Click(object sender, EventArgs e)
         {
-            // Open up the Role Crud Form.
+            // Open up the Role Crud Form
         }
 
         private void BtnEditPriorities_Click(object sender, EventArgs e)
